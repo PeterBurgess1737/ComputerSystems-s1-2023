@@ -15,5 +15,12 @@ CHIP Mux {
 
     PARTS:
     // Put your code here:
-    Mux(a=a ,b=b ,sel=sel ,out=out);
+    Not (in=sel, out=notsel);
+
+    // If sel=0 then return a, else return b
+
+    And (a=notsel, b=a, out=sel1);
+    And (a=sel, b=b, out=sel2);
+
+    Or (a=sel1, b=sel2, out=out);
 }
