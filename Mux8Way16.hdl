@@ -19,4 +19,11 @@ CHIP Mux8Way16 {
 
     PARTS:
     // Put your code here:
+
+    // Very similar to Mux4way but with more layers
+    // Re-using stuff is the best
+    Mux4Way16(a=a, b=b, c=c, d=d, sel=sel[0..1], out=mux1);
+    Mux4Way16(a=e, b=f, c=g, d=c, sel=sel[0..1], out=mux2);
+
+    Mux16(a=mux1, b=mux2, sel=sel[2], out=out);
 }

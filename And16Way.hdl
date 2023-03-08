@@ -11,4 +11,27 @@ CHIP And16Way {
 
     PARTS:
     // Put your code here:
+
+    // Similar to the Or chip, layers
+    And(a=in[0], b=in[1], out=L1n0);
+    And(a=in[2], b=in[3], out=L1n1);
+    And(a=in[4], b=in[5], out=L1n2);
+    And(a=in[6], b=in[7], out=L1n3);
+    And(a=in[8], b=in[9], out=L1n4);
+    And(a=in[10], b=in[11], out=L1n5);
+    And(a=in[12], b=in[13], out=L1n6);
+    And(a=in[14], b=in[15], out=L1n7);
+
+    // Layer 2
+    And(a=L1n0, b=L1n1, out=L2n0);
+    And(a=L1n2, b=L1n3, out=L2n1);
+    And(a=L1n4, b=L1n5, out=L2n2);
+    And(a=L1n6, b=L1n7, out=L2n3);
+
+    // Layer 3
+    And(a=L2n0, b=L2n1, out=L3n0);
+    And(a=L2n2, b=L2n3, out=L3n1);
+
+    // Capstone
+    And(a=L3n0, b=L3n1, out=out);
 }

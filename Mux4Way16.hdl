@@ -17,4 +17,12 @@ CHIP Mux4Way16 {
 
     PARTS:
     // Put your code here:
+
+    // Looking at the right most bit of sel, it is a normal 16 mux between a and b, or c and d
+    Mux16 (a=a, b=b, sel=sel[0], out=mux1);
+    Mux16 (a=c, b=d, sel=sel[0], out=mux2);
+
+    // Looking at the left most bit of sel, it is a 16 mux between mux1 and mux2
+    Mux16 (a=mux1, b=mux2, sel=sel[1], out=out);
+
 }

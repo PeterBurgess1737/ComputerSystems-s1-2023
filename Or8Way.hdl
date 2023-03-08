@@ -14,4 +14,19 @@ CHIP Or8Way {
 
     PARTS:
     // Put your code here:
+
+    // Thinking like a pyarmid
+
+    // Layer 1
+    Or (a=in[0], b=in[1], out=L1n0);
+    Or (a=in[2], b=in[3], out=L1n1);
+    Or (a=in[4], b=in[5], out=L1n2);
+    Or (a=in[6], b=in[7], out=L1n3);
+
+    // Layer 2
+    Or (a=L1n0, b=L1n1, out=L2n0);
+    Or (a=L1n2, b=L1n3, out=L2n1);
+
+    // Capstone
+    Or (a=L2n0, b=L2n1, out=out);
 }
