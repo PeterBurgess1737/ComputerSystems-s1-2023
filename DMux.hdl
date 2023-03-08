@@ -15,4 +15,5 @@ CHIP DMux {
 
     PARTS:
     // Put your code here:
+    DMux (a=in, sel=sel, a=a, b=b);
 }
